@@ -25,9 +25,11 @@ build/Release
 
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
+node_modules/connect
+node_modules/.bin
+node_modules/swagger-tools/*
+!node_modules/swagger-tools/middleware
 
-!node_modules/swagger-tools/middleware/swagger-ui/
 
 # Optional npm cache directory
 .npm

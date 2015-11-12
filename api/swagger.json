@@ -8,6 +8,16 @@
   "produces": ["application/json"],
   "host": "ec2-52-9-19-65.us-west-1.compute.amazonaws.com:8080",
   "basePath": "/api",
+  "tags": [
+      {
+          "name": "sandbox",
+          "description": "Sandboxes are self contained, isolated, interactive environments containing networked physical and virtual devices and apps. A sandbox is interactive and includes commands for interacting with the sandbox and its components. Users can interact with a sandbox to experiment, test and develop"
+      },
+      {
+          "name": "blueprint",
+          "description": "Blueprints define a template for a sandbox which contains its basic definitions, capabilities and structure. They are made available to users as a self service catalog. "
+      }
+  ],
   "paths": {
   
   "/v1/blueprints/{blueprint_identifier}": {

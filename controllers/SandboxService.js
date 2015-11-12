@@ -1,6 +1,6 @@
 'use strict';
 
-exports.apiV1BlueprintsBlueprintIdentifierCreateSandboxPost = function(blueprintIdentifier, body) {
+exports.v1BlueprintsBlueprintIdentifierCreateSandboxPost = function(blueprintIdentifier, body) {
 
   var examples = {};
   
@@ -25,7 +25,7 @@ exports.apiV1BlueprintsBlueprintIdentifierCreateSandboxPost = function(blueprint
     return examples[Object.keys(examples)[0]];
   
 }
-exports.apiV1SandboxesGet = function(showHistoric) {
+exports.v1SandboxesGet = function(showHistoric) {
 
   var examples = {};
   
@@ -49,7 +49,7 @@ exports.apiV1SandboxesGet = function(showHistoric) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.apiV1SandboxesIdGet = function(id) {
+exports.v1SandboxesIdGet = function(id) {
 
   var examples = {};
   
@@ -90,7 +90,7 @@ exports.apiV1SandboxesIdGet = function(id) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.apiV1SandboxesIdEndPost = function(id) {
+exports.v1SandboxesIdEndPost = function(id) {
 
   var examples = {};
   

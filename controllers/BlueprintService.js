@@ -1,6 +1,6 @@
 'use strict';
 
-exports.apiV1BlueprintsGet = function() {
+exports.v1BlueprintsGet = function() {
 
   var examples = {};
   
@@ -36,7 +36,7 @@ exports.apiV1BlueprintsGet = function() {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.apiV1BlueprintsSearchGet = function(q, category) {
+exports.v1BlueprintsSearchGet = function(q, category) {
 
   var examples = {};
   
@@ -70,7 +70,7 @@ exports.apiV1BlueprintsSearchGet = function(q, category) {
     return examples[Object.keys(examples)[0]];
   
 }
-exports.apiV1BlueprintsBlueprintIdentifierGet = function(blueprintIdentifier) {
+exports.v1BlueprintsBlueprintIdentifierGet = function(blueprintIdentifier) {
 
   var examples = {};
   

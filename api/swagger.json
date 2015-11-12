@@ -6,18 +6,72 @@
     "version": "1.0.0"
   },
   "produces": ["application/json"],
-  "host": "localhost:8080",
+  "host": "ec2-52-9-19-65.us-west-1.compute.amazonaws.com:8080",
   "basePath": "/api",
   "paths": {
   
-  "api/v1/blueprints": {
+  "/v1/blueprints/{blueprint_identifier}": {
+    
+    "get": {
+      "summary": "",
+      "description":"Get detailed information for a specifi blueprint",
+      "x-swagger-router-controller": "Blueprint",
+      "tags": ["Blueprint"],
+      "operationId": "v1BlueprintsBlueprintIdentifierGet",
+      "parameters": [
+        {
+  "name" : "blueprint_identifier",
+  "in" : "path",
+  "description" : "the name or id of the blueprint",
+  "required" : true,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "$ref" : "#/definitions/Blueprint"
+  },
+  "examples" : {
+    "application/json" : {
+      "data" : {
+        "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
+        "name" : "APIC-EM 1.0GA DataCenter Discovery",
+        "category" : "APIC-EM",
+        "availability" : "available",
+        "description" : "An example discovery application intended for develoeprs to experiment with",
+        "_links" : [ {
+          "self" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
+        } ],
+        "_actions" : [ {
+          "create_sandbox" : null,
+          "method" : "POST",
+          "body" : {
+            "$ref" : "#/definitions/SandboxStartParameters"
+          },
+          "href" : "/v1/blueprints/1c197b81-4213-467b-8a7a-f51ebd33a4b2/create_sandbox"
+        } ]
+      }
+    }
+  }
+}
+        
+        
+      }
+    } 
+    
+  } ,
+  
+  "/v1/blueprints": {
     
     "get": {
       "summary": "",
       "description":"Returns the blueprints available in the catalog.",
       "x-swagger-router-controller": "Blueprint",
       "tags": ["Blueprint"],
-      "operationId": "apiV1BlueprintsGet",
+      "operationId": "v1BlueprintsGet",
       "responses": {
         "200": {
   "description" : "Successful response",
@@ -62,14 +116,14 @@
     
   } ,
   
-  "api/v1/blueprints/search": {
+  "/v1/blueprints/search": {
     
     "get": {
       "summary": "",
       "description":"Search for a blueprint based on a query string.",
       "x-swagger-router-controller": "Blueprint",
       "tags": ["Blueprint"],
-      "operationId": "apiV1BlueprintsSearchGet",
+      "operationId": "v1BlueprintsSearchGet",
       "parameters": [
         {
   "name" : "q",
@@ -129,155 +183,15 @@
     
   } ,
   
-  "api/v1/blueprints/{blueprint_identifier}": {
-    
-    "get": {
-      "summary": "",
-      "description":"Get detailed information for a specifi blueprint",
-      "x-swagger-router-controller": "Blueprint",
-      "tags": ["Blueprint"],
-      "operationId": "apiV1BlueprintsBlueprintIdentifierGet",
-      "parameters": [
-        {
-  "name" : "blueprint_identifier",
-  "in" : "path",
-  "description" : "the name or id of the blueprint",
-  "required" : true,
-  "type" : "string"
-}
-        
-      ],
-      "responses": {
-        "200": {
-  "description" : "Successful response",
-  "schema" : {
-    "$ref" : "#/definitions/Blueprint"
-  },
-  "examples" : {
-    "application/json" : {
-      "data" : {
-        "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
-        "name" : "APIC-EM 1.0GA DataCenter Discovery",
-        "category" : "APIC-EM",
-        "availability" : "available",
-        "description" : "An example discovery application intended for develoeprs to experiment with",
-        "_links" : [ {
-          "self" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
-        } ],
-        "_actions" : [ {
-          "create_sandbox" : null,
-          "method" : "POST",
-          "body" : {
-            "$ref" : "#/definitions/SandboxStartParameters"
-          },
-          "href" : "/v1/blueprints/1c197b81-4213-467b-8a7a-f51ebd33a4b2/create_sandbox"
-        } ]
-      }
-    }
-  }
-}
-        
-        
-      }
-    } 
-    
-  } ,
   
-  
-  "api/v1/sandboxes/{id}/end": {
-    
-    "post": {
-      "summary": "",
-      "description":"End an active sandbox, starting its teardown process.",
-      "x-swagger-router-controller": "Sandbox",
-      "tags": ["Sandbox"],
-      "operationId": "apiV1SandboxesIdEndPost",
-      "parameters": [
-        {
-  "name" : "id",
-  "in" : "path",
-  "description" : "Sandbox id .",
-  "required" : true,
-  "type" : "string"
-}
-        
-      ],
-      "responses": {
-        "200": {
-  "description" : "Successful response"
-}
-        
-        
-      }
-    } 
-    
-  } ,
-  
-  "api/v1/blueprints/{blueprint_identifier}/create_sandbox": {
-    
-    "post": {
-      "summary": "",
-      "description":"Create a new sandbox instance from a given blueprint.",
-      "x-swagger-router-controller": "Sandbox",
-      "tags": ["Sandbox"],
-      "operationId": "apiV1BlueprintsBlueprintIdentifierCreateSandboxPost",
-      "parameters": [
-        {
-  "name" : "blueprint_identifier",
-  "in" : "path",
-  "description" : "the name or id of the blueprint",
-  "required" : true,
-  "type" : "string"
-},
-        {
-  "in" : "body",
-  "name" : "body",
-  "description" : "Sandbox scheduling parameters",
-  "required" : false,
-  "schema" : {
-    "$ref" : "#/definitions/SandboxStartParameters"
-  }
-}
-        
-      ],
-      "responses": {
-        "200": {
-  "description" : "Successful response",
-  "schema" : {
-    "$ref" : "#/definitions/Sandbox"
-  },
-  "examples" : {
-    "application/json" : {
-      "data" : {
-        "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
-        "name" : "APIC-EM 1.0GA DataCenter Discovery",
-        "category" : "APIC-EM",
-        "availability" : "available",
-        "description" : "An example discovery application intended for develoeprs to experiment with",
-        "_links" : [ {
-          "self" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
-        }, {
-          "create_sandbox" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/create_sandbox"
-        } ]
-      }
-    }
-  }
-}
-        
-        
-      }
-    } 
-    
-  } ,
-  
-  "api/v1/sandboxes/{id}": {
+  "/v1/sandboxes/{id}": {
     
     "get": {
       "summary": "",
       "description":"Returns detailed information for a specific sandbox",
       "x-swagger-router-controller": "Sandbox",
       "tags": ["Sandbox"],
-      "operationId": "apiV1SandboxesIdGet",
+      "operationId": "v1SandboxesIdGet",
       "parameters": [
         {
   "name" : "id",
@@ -337,14 +251,100 @@
     
   } ,
   
-  "api/v1/sandboxes": {
+  "/v1/sandboxes/{id}/end": {
+    
+    "post": {
+      "summary": "",
+      "description":"End an active sandbox, starting its teardown process.",
+      "x-swagger-router-controller": "Sandbox",
+      "tags": ["Sandbox"],
+      "operationId": "v1SandboxesIdEndPost",
+      "parameters": [
+        {
+  "name" : "id",
+  "in" : "path",
+  "description" : "Sandbox id .",
+  "required" : true,
+  "type" : "string"
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response"
+}
+        
+        
+      }
+    } 
+    
+  } ,
+  
+  "/v1/blueprints/{blueprint_identifier}/create_sandbox": {
+    
+    "post": {
+      "summary": "",
+      "description":"Create a new sandbox instance from a given blueprint.",
+      "x-swagger-router-controller": "Sandbox",
+      "tags": ["Sandbox"],
+      "operationId": "v1BlueprintsBlueprintIdentifierCreateSandboxPost",
+      "parameters": [
+        {
+  "name" : "blueprint_identifier",
+  "in" : "path",
+  "description" : "the name or id of the blueprint",
+  "required" : true,
+  "type" : "string"
+},
+        {
+  "in" : "body",
+  "name" : "body",
+  "description" : "Sandbox scheduling parameters",
+  "required" : false,
+  "schema" : {
+    "$ref" : "#/definitions/SandboxStartParameters"
+  }
+}
+        
+      ],
+      "responses": {
+        "200": {
+  "description" : "Successful response",
+  "schema" : {
+    "$ref" : "#/definitions/Sandbox"
+  },
+  "examples" : {
+    "application/json" : {
+      "data" : {
+        "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
+        "name" : "APIC-EM 1.0GA DataCenter Discovery",
+        "category" : "APIC-EM",
+        "availability" : "available",
+        "description" : "An example discovery application intended for develoeprs to experiment with",
+        "_links" : [ {
+          "self" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
+        }, {
+          "create_sandbox" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/create_sandbox"
+        } ]
+      }
+    }
+  }
+}
+        
+        
+      }
+    } 
+    
+  } ,
+  
+  "/v1/sandboxes": {
     
     "get": {
       "summary": "",
       "description":"List the active and scheduled sandboxes. Optionally also show historic sandboxes.",
       "x-swagger-router-controller": "Sandbox",
       "tags": ["Sandbox"],
-      "operationId": "apiV1SandboxesGet",
+      "operationId": "v1SandboxesGet",
       "parameters": [
         {
   "name" : "show_historic",

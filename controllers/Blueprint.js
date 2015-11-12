@@ -6,10 +6,10 @@ var url = require('url');
 var Blueprint = require('./BlueprintService');
 
 
-module.exports.apiV1BlueprintsGet = function apiV1BlueprintsGet (req, res, next) {
+module.exports.v1BlueprintsGet = function v1BlueprintsGet (req, res, next) {
   
 
-  var result = Blueprint.apiV1BlueprintsGet();
+  var result = Blueprint.v1BlueprintsGet();
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -19,12 +19,12 @@ module.exports.apiV1BlueprintsGet = function apiV1BlueprintsGet (req, res, next)
     res.end();
 };
 
-module.exports.apiV1BlueprintsSearchGet = function apiV1BlueprintsSearchGet (req, res, next) {
+module.exports.v1BlueprintsSearchGet = function v1BlueprintsSearchGet (req, res, next) {
   var q = req.swagger.params['q'].value;
   var category = req.swagger.params['category'].value;
   
 
-  var result = Blueprint.apiV1BlueprintsSearchGet(q, category);
+  var result = Blueprint.v1BlueprintsSearchGet(q, category);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -34,11 +34,11 @@ module.exports.apiV1BlueprintsSearchGet = function apiV1BlueprintsSearchGet (req
     res.end();
 };
 
-module.exports.apiV1BlueprintsBlueprintIdentifierGet = function apiV1BlueprintsBlueprintIdentifierGet (req, res, next) {
+module.exports.v1BlueprintsBlueprintIdentifierGet = function v1BlueprintsBlueprintIdentifierGet (req, res, next) {
   var blueprintIdentifier = req.swagger.params['blueprint_identifier'].value;
   
 
-  var result = Blueprint.apiV1BlueprintsBlueprintIdentifierGet(blueprintIdentifier);
+  var result = Blueprint.v1BlueprintsBlueprintIdentifierGet(blueprintIdentifier);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

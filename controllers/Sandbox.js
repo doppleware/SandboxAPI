@@ -6,12 +6,12 @@ var url = require('url');
 var Sandbox = require('./SandboxService');
 
 
-module.exports.v1BlueprintsBlueprintIdentifierCreateSandboxPost = function v1BlueprintsBlueprintIdentifierCreateSandboxPost (req, res, next) {
+module.exports.v1BlueprintsBlueprintIdentifierSetupSandboxPost = function v1BlueprintsBlueprintIdentifierSetupSandboxPost (req, res, next) {
   var blueprintIdentifier = req.swagger.params['blueprint_identifier'].value;
   var body = req.swagger.params['body'].value;
   
 
-  var result = Sandbox.v1BlueprintsBlueprintIdentifierCreateSandboxPost(blueprintIdentifier, body);
+  var result = Sandbox.v1BlueprintsBlueprintIdentifierSetupSandboxPost(blueprintIdentifier, body);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -35,11 +35,11 @@ module.exports.v1SandboxesGet = function v1SandboxesGet (req, res, next) {
     res.end();
 };
 
-module.exports.v1SandboxesIdGet = function v1SandboxesIdGet (req, res, next) {
-  var id = req.swagger.params['id'].value;
+module.exports.v1SandboxesSandboxIdGet = function v1SandboxesSandboxIdGet (req, res, next) {
+  var sandboxId = req.swagger.params['sandbox_id'].value;
   
 
-  var result = Sandbox.v1SandboxesIdGet(id);
+  var result = Sandbox.v1SandboxesSandboxIdGet(sandboxId);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');
@@ -49,11 +49,11 @@ module.exports.v1SandboxesIdGet = function v1SandboxesIdGet (req, res, next) {
     res.end();
 };
 
-module.exports.v1SandboxesIdEndPost = function v1SandboxesIdEndPost (req, res, next) {
-  var id = req.swagger.params['id'].value;
+module.exports.v1SandboxesSandboxIdTeardownSandboxPost = function v1SandboxesSandboxIdTeardownSandboxPost (req, res, next) {
+  var sandboxId = req.swagger.params['sandbox_id'].value;
   
 
-  var result = Sandbox.v1SandboxesIdEndPost(id);
+  var result = Sandbox.v1SandboxesSandboxIdTeardownSandboxPost(sandboxId);
 
   if(typeof result !== 'undefined') {
     res.setHeader('Content-Type', 'application/json');

@@ -13,7 +13,7 @@
   "tags": [
     {
       "name": "sandbox",
-      "description": "Sandboxes are self contained, isolated, interactive environments containing networked physical and virtual devices and apps. A sandbox is interactive and includes commands for interacting with the sandbox and its components. Users can interact with a sandbox to experiment, test and develop"
+      "description": "Sandboxes are self contained, isolated, interactive environments containing networked physical and virtual devices and apps which can be scheduled for a specified timeframe. A sandbox manages its own setup and teardown orchestration and is interactive and includes commands for interacting with the sandbox and its components. Users can interact with a sandbox to experiment, test and develop"
     },
     {
       "name": "blueprint",

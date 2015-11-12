@@ -183,7 +183,7 @@
         "description": "List the active and scheduled sandboxes. Optionally also show historic sandboxes.",
         "x-swagger-router-controller": "Sandbox",
         "tags": [
-          "andbox"
+          "sandbox"
         ],
         "operationId": "v1SandboxesGet",
         "parameters": [

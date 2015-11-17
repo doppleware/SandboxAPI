@@ -8,7 +8,7 @@
   "produces": [
     "application/json"
   ],
-  "host": "ec2-52-9-19-65.us-west-1.compute.amazonaws.com:8080",
+  "host": "localhost:8080",
   "basePath": "/api",
   "tags": [
     {
@@ -43,7 +43,7 @@
             "in": "body",
             "name": "body",
             "description": "Sandbox scheduling parameters",
-            "required": false,
+            "required": true,
             "schema": {
               "$ref": "#/definitions/SandboxStartParameters"
             }
@@ -342,11 +342,10 @@
   },
   "definitions": {
     "SandboxStartParameters": {
-      "type": "object",
-      "properties": {
+      "properties": { 
         "duration": {
           "type": "string",
-          "format": "datetime",
+          "example": "T4H2M",
           "description": "Duration for this instance using the \"ISO 8601\" Standard. (e.g 'T23H' or 'T4H2M')"
         },
         "name": {
@@ -354,8 +353,7 @@
           "example": "APIC Enterprise for test",
           "description": "A name to identify the new blueprint. If you don't specify a name one will be generated automatically."
         }
-      },
-      "title": "data"
+      }
     },
     "Sandbox": {
       "type": "object",

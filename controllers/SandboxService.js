@@ -5,7 +5,6 @@ exports.v1BlueprintsBlueprintIdentifierSetupSandboxPost = function(blueprintIden
   var examples = {};
   
   examples['application/json'] = {
-  "data" : {
     "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
     "name" : "APIC-EM 1.0GA DataCenter Discovery",
     "category" : "APIC-EM",
@@ -16,7 +15,7 @@ exports.v1BlueprintsBlueprintIdentifierSetupSandboxPost = function(blueprintIden
     }, {
       "create_sandbox" : "/v1/blueprints/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/create_sandbox"
     } ]
-  }
+
 };
   
 

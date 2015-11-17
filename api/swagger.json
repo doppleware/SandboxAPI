@@ -8,7 +8,7 @@
   "produces": [
     "application/json"
   ],
-  "host": "localhost:8080",
+  "host": "ec2-52-9-19-65.us-west-1.compute.amazonaws.com:8080",
   "basePath": "/api",
   "tags": [
     {

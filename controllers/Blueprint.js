@@ -7,28 +7,9 @@ var Blueprint = require('./BlueprintService');
 
 
 module.exports.v1BlueprintsGet = function v1BlueprintsGet (req, res, next) {
-  
-
-  var result = Blueprint.v1BlueprintsGet();
-
-  if(typeof result !== 'undefined') {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(result || {}, null, 2));
-  }
-  else
-    res.end();
+  Blueprint.v1BlueprintsGet(req.swagger.params, res, next);
 };
 
 module.exports.v1BlueprintsBlueprintIdentifierGet = function v1BlueprintsBlueprintIdentifierGet (req, res, next) {
-  var blueprintIdentifier = req.swagger.params['blueprint_identifier'].value;
-  
-
-  var result = Blueprint.v1BlueprintsBlueprintIdentifierGet(blueprintIdentifier);
-
-  if(typeof result !== 'undefined') {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(result || {}, null, 2));
-  }
-  else
-    res.end();
+  Blueprint.v1BlueprintsBlueprintIdentifierGet(req.swagger.params, res, next);
 };

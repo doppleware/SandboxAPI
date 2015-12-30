@@ -33,7 +33,8 @@ paths:
               data:
               - id: "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
                 name: "APIC-EM 1.0GA DataCenter Discovery"
-                category: "APIC-EM"
+                categories:
+                - "APIC-EM"
                 availability: "available"
                 description: "An example discovery application intended for develoeprs\
                   \ to experiment with"
@@ -47,7 +48,8 @@ paths:
                   href: "/v1/blueprints/1c197b81-4213-467b-8a7a-f51ebd33a4b2/create_sandbox"
               - id: "1c197b81-4213-467b-8a7a-f51ebd33a4b2"
                 name: "APIC-EM 1.0GA DataCenter Discovery"
-                category: "APIC-EM"
+                categories:
+                - "APIC-EM"
                 availability: "available"
                 description: "An example discovery application intended for develoeprs\
                   \ to experiment with"
@@ -80,7 +82,8 @@ paths:
               data:
                 id: "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
                 name: "APIC-EM 1.0GA DataCenter Discovery"
-                category: "APIC-EM"
+                categories:
+                - "APIC-EM"
                 availability: "available"
                 description: "An example discovery application intended for develoeprs\
                   \ to experiment with"
@@ -113,32 +116,11 @@ paths:
         200:
           description: "Successful response"
           schema:
-            $ref: "#/definitions/SandboxDetails"
+            $ref: "#/definitions/inline_response_200"
           examples:
             application/json:
               data:
                 id: "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
-                name: "CI Build 123123 APC-IM Test Policy"
-                state: "in setup"
-                description: "An example discovery application intended for develoeprs\
-                  \ to experiment with"
-                components:
-                - name: "Client Desktop"
-                  description: "Represents a client machine connected to a WAN network"
-                  type: "SandboxComponent"
-                  component_type: "Virtual Machine"
-                  connection_interfaces:
-                  - name: "Remote Desktop"
-                    type: "ConnectionInterface"
-                    connection_interface_type: "WebRemoteLink"
-                    url: "http://sandbox_api_remote_server.com/nav?id=c%2FDEFAULT&amp;guac.hostname=192.33.45.66&amp;guac.protocol=rdp&amp;guac.port=3389&amp;guac.username=test&amp;guac.password=D*SDAD&"
-                  attributes:
-                  - name: "Version"
-                    type: "ComponentAttribute"
-                    value: "2.3.0"
-                  _links:
-                  - self: "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
-                  - end: "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/end"
   /v1/sandboxes:
     get:
       tags:
@@ -420,10 +402,11 @@ definitions:
         type: "string"
         format: "string"
         example: "APIC-EM GA"
-      category:
-        type: "string"
-        format: "string"
-        example: "developers"
+      categories:
+        type: "array"
+        items:
+          type: "string"
+          example: "developers"
       description:
         type: "string"
         format: "string"
@@ -436,3 +419,8 @@ definitions:
         - "Available Now"
         - "Not available"
     title: "data"
+  inline_response_200:
+    properties:
+      id:
+        type: "string"
+        format: "string"

@@ -11,32 +11,7 @@ var examples = {};
   
   examples['application/json'] = {
   "data" : {
-    "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
-    "name" : "CI Build 123123 APC-IM Test Policy",
-    "state" : "in setup",
-    "description" : "An example discovery application intended for develoeprs to experiment with",
-    "components" : [ {
-      "name" : "Client Desktop",
-      "description" : "Represents a client machine connected to a WAN network",
-      "type" : "SandboxComponent",
-      "component_type" : "Virtual Machine",
-      "connection_interfaces" : [ {
-        "name" : "Remote Desktop",
-        "type" : "ConnectionInterface",
-        "connection_interface_type" : "WebRemoteLink",
-        "url" : "http://sandbox_api_remote_server.com/nav?id=c%2FDEFAULT&amp;guac.hostname=192.33.45.66&amp;guac.protocol=rdp&amp;guac.port=3389&amp;guac.username=test&amp;guac.password=D*SDAD&"
-      } ],
-      "attributes" : [ {
-        "name" : "Version",
-        "type" : "ComponentAttribute",
-        "value" : "2.3.0"
-      } ],
-      "_links" : [ {
-        "self" : "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
-      }, {
-        "end" : "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/end"
-      } ]
-    } ]
+    "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
   }
 };
   

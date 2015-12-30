@@ -11,7 +11,7 @@ var examples = {};
   "data" : [ {
     "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
     "name" : "APIC-EM 1.0GA DataCenter Discovery",
-    "category" : "APIC-EM",
+    "categories" : [ "APIC-EM" ],
     "availability" : "available",
     "description" : "An example discovery application intended for develoeprs to experiment with",
     "_links" : [ {
@@ -28,7 +28,7 @@ var examples = {};
   }, {
     "id" : "1c197b81-4213-467b-8a7a-f51ebd33a4b2",
     "name" : "APIC-EM 1.0GA DataCenter Discovery",
-    "category" : "APIC-EM",
+    "categories" : [ "APIC-EM" ],
     "availability" : "available",
     "description" : "An example discovery application intended for develoeprs to experiment with",
     "_links" : [ {
@@ -69,7 +69,7 @@ var examples = {};
   "data" : {
     "id" : "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4",
     "name" : "APIC-EM 1.0GA DataCenter Discovery",
-    "category" : "APIC-EM",
+    "categories" : [ "APIC-EM" ],
     "availability" : "available",
     "description" : "An example discovery application intended for develoeprs to experiment with",
     "_links" : [ {

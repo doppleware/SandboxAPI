@@ -17,6 +17,8 @@ tags:
 paths:
   /v1/blueprints:
     get:
+      x-swagger-router-controller: Blueprint
+      operationId: v1BlueprintsGet
       tags:
       - "blueprint"
       description: "Returns the blueprints available in the catalog.  \n"
@@ -63,6 +65,8 @@ paths:
                   href: "/v1/blueprints/1c197b81-4213-467b-8a7a-f51ebd33a4b2/create_sandbox"
   /v1/blueprints/{blueprint_identifier}:
     get:
+      x-swagger-router-controller: Blueprint
+      operationId: v1BlueprintsBlueprintIdentifierGet
       tags:
       - "blueprint"
       description: "Get detailed information for a specifi blueprint\n"
@@ -97,6 +101,8 @@ paths:
                   href: "/v1/blueprints/1c197b81-4213-467b-8a7a-f51ebd33a4b2/create_sandbox"
   /v1/blueprints/{blueprint_identifier}/start:
     post:
+      x-swagger-router-controller: Sandbox
+      operationId: v1BlueprintsBlueprintIdentifierStartPost
       tags:
       - "sandbox"
       description: "Create a new sandbox instance from a given blueprint.\n"
@@ -123,6 +129,8 @@ paths:
                 id: "4d9f97c2-7f0d-411d-9501-e9c5de41b4e4"
   /v1/sandboxes:
     get:
+      x-swagger-router-controller: Sandbox
+      operationId: v1SandboxesGet
       tags:
       - "sandbox"
       description: "List the active and scheduled sandboxes. Optionally also show\
@@ -156,6 +164,8 @@ paths:
                 - end: "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/end"
   /v1/sandboxes/{sandbox_id}:
     get:
+      x-swagger-router-controller: Sandbox
+      operationId: v1SandboxesSandboxIdGet
       tags:
       - "sandbox"
       description: "Returns detailed information for a specific sandbox  \n"
@@ -200,6 +210,8 @@ paths:
                   - end: "/v1/sanboxes/4d9f97c2-7f0d-411d-9501-e9c5de41b4e4/end"
   /v1/sandboxes/{sandbox_id}/stop:
     post:
+      x-swagger-router-controller: Sandbox
+      operationId: v1SandboxesSandboxIdStopPost
       tags:
       - "sandbox"
       description: "End an active sandbox, starting its teardown process.\n"
